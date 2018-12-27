@@ -12,7 +12,6 @@ var info1 = {
 
 console.log(getDoubled.call(info));
 console.log(getDoubled.call(info1));
-
 console.log(getDoubledTrippled(getDoubled.call(info)));
 console.log(getDoubledTrippled(getDoubled.call(info1)));
 

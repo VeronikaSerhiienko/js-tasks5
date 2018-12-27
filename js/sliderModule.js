@@ -2,6 +2,7 @@
   var imageArray = [{image: 'car.jpg', alt: 'Car'}, {image: 'apple.jpg', alt: 'Apple'}, {image: 'cat.jpg', alt: 'Cat'}, {image: 'orange.jpg', alt: 'Orange'}, {image: 'frog.jpg', alt: 'Frog'}];
   var currentSlide = 0;
   var newSlide = {image: 'dog.jpg', alt: 'Dog'};
+
   console.log(switchToNextSlide());
   console.log(switchToPreviousSlide());
   console.log(switchToNthSlide(2));
@@ -28,7 +29,7 @@
   }
 
   function switchToNthSlide(n) {
-    if ((n >= 0) && (n <= imageArray.length -1)) {
+    if ((n >= 0) && (n <= imageArray.length - 1)) {
       currentSlide = n;
     }
     return currentSlide;
@@ -41,9 +42,9 @@
   function addNewSlide(n, newSlide) {
     if (n === 0) {
       imageArray.unshift(newSlide);
-    } else if (n === imageArray.length-1) {
+    } else if (n === imageArray.length - 1) {
       imageArray.push(newSlide);
-    } else if (n > 0 && n < imageArray.length-1) {
+    } else if (n > 0 && n < imageArray.length - 1) {
       imageArray.splice(n, 0, newSlide);
     }
     return imageArray;
