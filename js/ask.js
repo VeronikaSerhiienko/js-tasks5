@@ -1,6 +1,6 @@
 'use strict';
 
-function ask(question, answer, ok, fail) {
+function askv1(question, answer, ok, fail) {
   var result = prompt(question, '');
   if (result === answer) {
     ok();
@@ -9,7 +9,7 @@ function ask(question, answer, ok, fail) {
   }
 }
 
-var user = {
+var userv1 = {
   login: 'Andrew',
   password: '12345',
 
@@ -22,11 +22,11 @@ var user = {
   },
 
   checkPassword: function() {
-    ask("Your password?", this.password, this.loginOk.bind(this), this.loginFail.bind(this));
+    askv1("Your password?", this.password, this.loginOk.bind(this), this.loginFail.bind(this));
   }
 };
 
-function ask(question, answer, ok, fail) {
+function askv2(question, answer, ok, fail) {
   var result = prompt(question, '');
   if (result === answer) {
     ok();
@@ -35,7 +35,7 @@ function ask(question, answer, ok, fail) {
   }
 }
 
-var user = {
+var userv2 = {
   login: 'Andrew',
   password: '12345',
 
@@ -49,7 +49,7 @@ var user = {
 
   checkPassword: function() {
     var self = this;
-    ask("Your password?", this.password, 
+    askv2("Your password?", this.password, 
       function() {
         self.loginOk();
       },
@@ -60,8 +60,14 @@ var user = {
   }
 };
 
-user.checkPassword();
+userv1.checkPassword();
 
-var user2 = user;
-user = null;
+var user1 = userv1;
+userv1 = null;
+user1.checkPassword();
+
+userv2.checkPassword();
+
+var user2 = userv2;
+userv2 = null;
 user2.checkPassword();

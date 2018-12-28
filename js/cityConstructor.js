@@ -6,12 +6,13 @@ console.log(city1);
 console.log(city1.getPopulation());
 console.log(city1.getCityName());
 console.log(city1.addCitizen());
+console.log(city1.getPopulation());
 console.log(city2);
 console.log(city3);
 
 function City(name, population, country) {
   this.name = name;
-  this.population = population;
+  this.population = +population;
   this.country = country;
   this.getPopulation = function() {
     return this.population;
@@ -20,6 +21,6 @@ function City(name, population, country) {
     return this.name;
   };
   this.addCitizen = function() {
-    return this.population + 1;
+    return ++this.population;
   };
 }

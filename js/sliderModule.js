@@ -7,7 +7,7 @@
   console.log(switchToPreviousSlide());
   console.log(switchToNthSlide(2));
   console.log(getInformationAboutCurrentSlide());
-  console.log(addNewSlide(3, newSlide));
+  console.log(addNewSlide(0, newSlide));
   console.log(deleteNthSlide(1));
 
   function switchToNextSlide() {
@@ -40,6 +40,10 @@
   }
 
   function addNewSlide(n, newSlide) {
+    if (n < currentSlide) {
+      ++currentSlide;
+    }
+
     if (n === 0) {
       imageArray.unshift(newSlide);
     } else if (n === imageArray.length - 1) {
@@ -51,6 +55,10 @@
   }
 
   function deleteNthSlide(n) {
+    if (n < currentSlide) {
+      --currentSlide;
+    }
+
     if (n === 0) {
       imageArray.shift();
     } else if (n === imageArray.length - 1) {
